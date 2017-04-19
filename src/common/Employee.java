@@ -5,6 +5,7 @@ public class Employee {
     private String firstName;
     private String ssn;
     private Address address;
+    private int employeeID;
 
     public Employee(String lastName, String firstName, String ssn) {
         this.lastName = lastName;
@@ -43,6 +44,36 @@ public class Employee {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + this.employeeID;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Employee other = (Employee) obj;
+        if (this.employeeID != other.employeeID) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" + "lastName=" + lastName + ", firstName=" + firstName + '}';
     }
 
 

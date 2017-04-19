@@ -29,6 +29,34 @@ public class Dog {
         this.rabiesId = rabiesId;
     }
 
-    
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + this.rabiesId;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Dog other = (Dog) obj;
+        if (this.rabiesId != other.rabiesId) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Dog{" + "name=" + name + '}';
+    }
 
 }
